@@ -1,0 +1,30 @@
+# Python Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Python Cache & Bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment Variables & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs & Output
+*.log
+bot_output.log
+
+# Discord Bot Data & Backups
+backups/
+
+# OS / Editor Files
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
