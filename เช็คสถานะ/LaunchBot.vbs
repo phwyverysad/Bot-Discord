@@ -1,4 +1,4 @@
-﻿Option Explicit
+Option Explicit
 
 Const BOT_SCRIPT_NAME = "bothistory.py"
 Const BOT_NAME = "Discord Status & History Logger"
@@ -113,24 +113,24 @@ Sub LaunchBot()
     On Error Resume Next
     WshShell.Run runCmd, HIDDEN_MODE, False
     On Error GoTo 0
-    ShowWindowsToast BOT_NAME, "บอทเริ่มทำงานในเบื้องหลังเรียบร้อยแล้ว (Active in Background)"
+    ShowWindowsToast BOT_NAME, "�ͷ������ӧҹ����ͧ��ѧ���º�������� (Active in Background)"
 End Sub
 
 ' === Main Execution ===
 If Not FSO.FileExists(BotScript) Then
-    MsgBox "ไม่พบไฟล์สคริปต์: " & BOT_SCRIPT_NAME, vbCritical, "Discord Bot Error"
+    MsgBox "��辺���ʤ�Ի��: " & BOT_SCRIPT_NAME, vbCritical, "Discord Bot Error"
     WScript.Quit 1
 End If
 
 If IsBotRunning() Then
-    ShowWindowsToast BOT_NAME, "บอทกำลังทำงานอยู่แล้วในระบบ (Already running)"
+    ShowWindowsToast BOT_NAME, "�ͷ���ѧ�ӧҹ����������к� (Already running)"
     WScript.Quit 0
 End If
 
 PythonCmd = DetectPython()
 If PythonCmd = "" Then
     Dim ans
-    ans = MsgBox("ไม่พบการติดตั้ง Python บนระบบนี้ กรุณาติดตั้ง Python 3.10 ขึ้นไปก่อนใช้งาน (อย่าลืมติ๊ก Add python.exe to PATH)" & vbCrLf & vbCrLf & "ต้องการเปิดหน้าเว็บดาวน์โหลด Python หรือไม่?", vbYesNo + vbCritical, "Discord Bot - ไม่พบ Python")
+    ans = MsgBox("��辺��õԴ��� Python ���к���� ��سҵԴ��� Python 3.10 ���仡�͹��ҹ (���������� Add python.exe to PATH)" & vbCrLf & vbCrLf & "��ͧ����Դ˹����纴�ǹ���Ŵ Python �������?", vbYesNo + vbCritical, "Discord Bot - ��辺 Python")
     If ans = vbYes Then
         WshShell.Run "https://www.python.org/downloads/"
     End If

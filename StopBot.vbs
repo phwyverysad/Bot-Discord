@@ -1,4 +1,4 @@
-﻿Option Explicit
+Option Explicit
 
 Const HIDDEN_MODE = 0
 
@@ -37,7 +37,7 @@ Function StopAllDiscordBots()
         cmdLine = process.CommandLine
         If InStr(1, cmdLine, "bothistory.py", vbTextCompare) > 0 Or _
            InStr(1, cmdLine, "copy discord", vbTextCompare) > 0 Or _
-           InStr(1, cmdLine, "บอทไว้ยืงดิส", vbTextCompare) > 0 Or _
+           InStr(1, cmdLine, "�ͷ����ק���", vbTextCompare) > 0 Or _
            InStr(1, cmdLine, ScriptPath, vbTextCompare) > 0 Then
             If pids = "" Then
                 pids = CStr(process.ProcessId)
@@ -73,12 +73,12 @@ End Function
 PromptText = "==========================================" & vbCrLf & _
              "        DISCORD BOT MASTER STOPPER        " & vbCrLf & _
              "==========================================" & vbCrLf & vbCrLf & _
-             "เลือกการทำงานในการปิดบอท:" & vbCrLf & vbCrLf & _
-             " [1]  ปิดบอททั้งหมดในระบบ (Stop All Discord Bots)" & vbCrLf & _
-             " [2]  ปิดเฉพาะบอท เช็คสถานะ" & vbCrLf & _
-             " [3]  ปิดเฉพาะบอท copy discord" & vbCrLf & _
-             " [4]  ปิดเฉพาะบอท บอทไว้ยืงดิส" & vbCrLf & vbCrLf & _
-             "กด Cancel หรือใส่ [0] เพื่อยกเลิก"
+             "���͡��÷ӧҹ㹡�ûԴ�ͷ:" & vbCrLf & vbCrLf & _
+             " [1]  �Դ�ͷ��������к� (Stop All Discord Bots)" & vbCrLf & _
+             " [2]  �Դ੾�кͷ ��ʶҹ�" & vbCrLf & _
+             " [3]  �Դ੾�кͷ copy discord" & vbCrLf & _
+             " [4]  �Դ੾�кͷ �ͷ����ק���" & vbCrLf & vbCrLf & _
+             "�� Cancel ������� [0] ����¡��ԡ"
 
 Choice = InputBox(PromptText, "Discord Bot Master Stopper", "1")
 
@@ -91,18 +91,18 @@ Select Case Trim(Choice)
         Dim totalKilled
         totalKilled = StopAllDiscordBots()
         If totalKilled > 0 Then
-            ShowWindowsToast "Discord Bot Master", "ปิดบอททั้งหมดเรียบร้อยแล้ว (" & totalKilled & " processes stopped)"
+            ShowWindowsToast "Discord Bot Master", "�Դ�ͷ���������º�������� (" & totalKilled & " processes stopped)"
         Else
-            ShowWindowsToast "Discord Bot Master", "ไม่พบบอทที่กำลังทำงานอยู่ในระบบ"
+            ShowWindowsToast "Discord Bot Master", "��辺�ͷ�����ѧ�ӧҹ������к�"
         End If
     Case "2"
-        WshShell.Run "wscript.exe """ & ScriptPath & "\เช็คสถานะ\StopBot.vbs""", 0, False
+        WshShell.Run "wscript.exe """ & ScriptPath & "\��ʶҹ�\StopBot.vbs""", 0, False
     Case "3"
         WshShell.Run "wscript.exe """ & ScriptPath & "\copy discord\StopBot.vbs""", 0, False
     Case "4"
-        WshShell.Run "wscript.exe """ & ScriptPath & "\บอทไว้ยืงดิส\StopBot.vbs""", 0, False
+        WshShell.Run "wscript.exe """ & ScriptPath & "\�ͷ����ק���\StopBot.vbs""", 0, False
     Case Else
-        MsgBox "หมายเลขไม่ถูกต้อง กรุณาระบุ 1, 2, 3 หรือ 4", vbExclamation, "Discord Bot Stopper"
+        MsgBox "�����Ţ���١��ͧ ��س��к� 1, 2, 3 ���� 4", vbExclamation, "Discord Bot Stopper"
 End Select
 
 Set WshShell = Nothing

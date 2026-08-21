@@ -1,4 +1,4 @@
-﻿Option Explicit
+Option Explicit
 
 Const BOT_SCRIPT_NAME = "bot.py"
 Const BOT_NAME = "Discord Server Cloner & Backup"
@@ -85,9 +85,9 @@ Dim killedCount
 killedCount = KillBotProcesses()
 
 If killedCount > 0 Then
-    ShowWindowsToast BOT_NAME, "ปิดการทำงานของบอทเรียบร้อยแล้ว (" & killedCount & " process stopped)"
+    ShowWindowsToast BOT_NAME, "�Դ��÷ӧҹ�ͧ�ͷ���º�������� (" & killedCount & " process stopped)"
 Else
-    ShowWindowsToast BOT_NAME, "ไม่พบบอทที่กำลังทำงานอยู่ในระบบ (Bot is not running)"
+    ShowWindowsToast BOT_NAME, "��辺�ͷ�����ѧ�ӧҹ������к� (Bot is not running)"
 End If
 
 Set WshShell = Nothing

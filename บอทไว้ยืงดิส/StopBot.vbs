@@ -1,4 +1,4 @@
-﻿Option Explicit
+Option Explicit
 
 Const BOT_SCRIPT_NAME = "bot.py"
 Const BOT_NAME = "Discord Fast Server Reset"
@@ -38,7 +38,7 @@ Function FindBotProcesses()
     
     For Each process In colProcesses
         cmdLine = process.CommandLine
-        If InStr(1, cmdLine, BotScript, vbTextCompare) > 0 Or (InStr(1, cmdLine, BOT_SCRIPT_NAME, vbTextCompare) > 0 And (InStr(1, cmdLine, "บอทไว้ยืงดิส", vbTextCompare) > 0 Or InStr(1, cmdLine, "bot spam", vbTextCompare) > 0)) Then
+        If InStr(1, cmdLine, BotScript, vbTextCompare) > 0 Or (InStr(1, cmdLine, BOT_SCRIPT_NAME, vbTextCompare) > 0 And (InStr(1, cmdLine, "�ͷ����ק���", vbTextCompare) > 0 Or InStr(1, cmdLine, "bot spam", vbTextCompare) > 0)) Then
             If botPIDs = "" Then
                 botPIDs = CStr(process.ProcessId)
             Else
@@ -85,9 +85,9 @@ Dim killedCount
 killedCount = KillBotProcesses()
 
 If killedCount > 0 Then
-    ShowWindowsToast BOT_NAME, "ปิดการทำงานของบอทเรียบร้อยแล้ว (" & killedCount & " process stopped)"
+    ShowWindowsToast BOT_NAME, "�Դ��÷ӧҹ�ͧ�ͷ���º�������� (" & killedCount & " process stopped)"
 Else
-    ShowWindowsToast BOT_NAME, "ไม่พบบอทที่กำลังทำงานอยู่ในระบบ (Bot is not running)"
+    ShowWindowsToast BOT_NAME, "��辺�ͷ�����ѧ�ӧҹ������к� (Bot is not running)"
 End If
 
 Set WshShell = Nothing
